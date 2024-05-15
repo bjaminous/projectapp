@@ -21,13 +21,22 @@ class EntrepriseProjectController extends Controller
         return view('chooses.index', compact('project','projets'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    public function create()
+    {
+        // Afficher le formulaire de création d'un nouveau projet
+        //return view('chooses.create');
+        $elements = Entreprise::all();
+        $elements2 = Project::all();
+        return view('chooses.create', compact('elements','elements2'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function select()
     {
         $elements = Entreprise::all();
         $elements2 = Project::all();
